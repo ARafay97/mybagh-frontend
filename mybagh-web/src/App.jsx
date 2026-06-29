@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import "./App.css";
+import { useState } from 'react';
+import AnnouncementBar from './components/AnnouncementBar';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import BreakfastMenu from './pages/BreakfastMenu';
+import MainMenu from './pages/MainMenu';
+import './App.css';
 
 function App() {
+  const [page, setPage] = useState('home');
+
   return (
-    <main className="coming-soon">
-      <header className="coming-soon__header">
-        <img
-          src="src/images/logo.jpg"
-          alt="Mybagh logo"
-          className="logo"
-        />
-      </header>
-
-      <section className="coming-soon__content">
-        <h1 className="coming-soon__title">Mybagh</h1>
-        <p className="coming-soon__subtitle">Coming Soon</p>
-
-        {/* optional: keep/remove once you send CSS */}
-        <div className="coming-soon__line" />
-
-        <p className="coming-soon__text">
-          We’re building something special. Check back soon.
-        </p>
-      </section>
-
-      <footer className="coming-soon__footer">
-        <small>© {new Date().getFullYear()} Mybagh. All rights reserved.</small>
+    <div className="site-wrapper">
+      <AnnouncementBar />
+      <Navbar page={page} setPage={setPage} />
+      <main className="site-content">
+        {page === 'home' && <Home setPage={setPage} />}
+        {page === 'breakfast' && <BreakfastMenu />}
+        {page === 'menu' && <MainMenu />}
+      </main>
+      <footer className="site-footer">
+        <p>© {new Date().getFullYear()} MyBagh. All rights reserved.</p>
+        <p>667 Stockport Road, Manchester, M12 4QE &nbsp;|&nbsp; 07587 049396</p>
       </footer>
-    </main>
+    </div>
   );
 }
 

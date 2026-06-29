@@ -1,0 +1,38 @@
+.announce-bar {
+  background: #c9a84c;
+  color: #0e0a04;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.announce-bar__track {
+  display: inline-block;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.announce-bar__track span {
+  display: inline-block;
+  padding-right: 3rem;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (min-width: 900px) {
+  .announce-bar {
+    font-size: 0.82rem;
+  }
+}

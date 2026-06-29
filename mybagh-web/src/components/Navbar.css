@@ -1,0 +1,103 @@
+.navbar {
+  background: #1a0f05;
+  border-bottom: 2px solid #c9a84c;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.2rem;
+  position: sticky;
+  top: 32px;
+  z-index: 999;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.navbar__logo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0;
+}
+
+.navbar__logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #c9a84c;
+}
+
+.navbar__brand {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #c9a84c;
+  font-family: 'Georgia', serif;
+  letter-spacing: 0.05em;
+}
+
+.navbar__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.navbar__burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #c9a84c;
+  border-radius: 2px;
+  transition: transform 0.25s, opacity 0.25s;
+}
+
+.navbar__burger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.navbar__burger.is-open span:nth-child(2) { opacity: 0; }
+.navbar__burger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.navbar__links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.navbar__link {
+  background: none;
+  border: none;
+  color: #f5f0e8;
+  font-size: 0.9rem;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0.45rem 0.9rem;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.navbar__link:hover { background: #2e1e0a; color: #c9a84c; }
+.navbar__link.active { background: #c9a84c; color: #0e0a04; font-weight: 700; }
+
+@media (max-width: 640px) {
+  .navbar__burger { display: flex; }
+
+  .navbar__links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    border-top: 1px solid #c9a84c44;
+    padding-top: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .navbar__links.is-open { display: flex; }
+
+  .navbar__link { text-align: left; padding: 0.6rem 0.5rem; }
+}
